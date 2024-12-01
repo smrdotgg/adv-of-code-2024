@@ -1,11 +1,15 @@
 import { input } from "./001.input";
-const sortedLeft = input.leftCol.sort()
-const sortedRight = input.rightCol.sort();
 
-let distance = 0;
-for (let i = 0; i < sortedLeft.length; i ++){
-  const currDist = Math.abs(sortedRight[i] - sortedLeft[i]);
-  if (currDist < 0) console.log(currDist);
-  distance += currDist
+const rightNumberToCountMap: {[key:string]:number} = {};
+for (const rightString of input.rightCol){
+  rightNumberToCountMap[rightString] = (rightNumberToCountMap[rightString] ?? 0) + 1
 }
-console.log(distance)
+
+
+let total = 0
+for (const leftString of input.leftCol){
+  const current = Number(leftString) * (rightNumberToCountMap[leftString] ?? 0)
+  total += current
+}
+
+console.log(total);

@@ -998,8 +998,8 @@ export const rawData = `28186   35627
 83450   76669
 62947   25771
 55820   53096`.split("\n").filter(Boolean).map(row => row.split("   "))
-const leftCol = rawData.map(row => Number(row[0]))
-const rightCol = rawData.map(row => Number(row[1]))
+const leftCol = rawData.map(row => (row[0]))
+const rightCol = rawData.map(row => (row[1]))
 
 
 export const input = {leftCol ,rightCol} 
